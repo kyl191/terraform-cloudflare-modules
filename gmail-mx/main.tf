@@ -35,7 +35,7 @@ resource "cloudflare_record" "gmail-aspmx2" {
     priority = 10
 }
 
-resource "cloudflare_record" "gmail-aspmx" {
+resource "cloudflare_record" "gmail-aspmx3" {
     domain = "${var.domain}"
     name = "@"
     value = "aspmx3.l.google.com"
