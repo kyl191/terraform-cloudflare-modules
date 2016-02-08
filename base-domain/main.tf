@@ -1,18 +1,18 @@
 variable "domain" {}
 variable "resourcename" {}
 variable "dest" {}
-resource "cloudflare_record" "root-${resourcename}" {
-    domain = "${domain}"
+resource "cloudflare_record" "root-${var.resourcename}" {
+    domain = "${var.domain}"
     name = "@"
-    value = "${dest}"
+    value = "${var.dest}"
     type = "CNAME"
     ttl = 1
 }
 
-resource "cloudflare_record" "www-${resourcename}" {
-    domain = "${domain}"
+resource "cloudflare_record" "www-${var.resourcename}" {
+    domain = "${var.domain}"
     name = "www"
-    value = "${dest}"
+    value = "${var.dest}"
     type = "CNAME"
     ttl = 1
 }
