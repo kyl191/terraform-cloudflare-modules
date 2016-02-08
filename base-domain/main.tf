@@ -1,6 +1,8 @@
 variable "domain" {}
+variable "clean-domain" { default = "${replace("${domain}",".","-")}"}
 variable "dest" {}
-resource "cloudflare_record" "root-${domain}" {
+
+resource "cloudflare_record" "root-${clean-domain}" {
     domain = "${domain}"
     name = "@"
     value = "${dest}"
