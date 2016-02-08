@@ -1,6 +1,7 @@
 variable "domain" {}
+variable "resourcename" {}
 variable "dest" {}
-resource "cloudflare_record" "root-${domain}" {
+resource "cloudflare_record" "root-${resourcename}" {
     domain = "${domain}"
     name = "@"
     value = "${dest}"
@@ -8,7 +9,7 @@ resource "cloudflare_record" "root-${domain}" {
     ttl = 1
 }
 
-resource "cloudflare_record" "www-${domain}" {
+resource "cloudflare_record" "www-${resourcename}" {
     domain = "${domain}"
     name = "www"
     value = "${dest}"
