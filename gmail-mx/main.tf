@@ -26,19 +26,19 @@ resource "cloudflare_record" "gmail-alt2" {
     priority = 5
 }
 
-resource "cloudflare_record" "gmail-aspmx2" {
+resource "cloudflare_record" "gmail-alt3" {
     domain = "${var.domain}"
     name = "@"
-    value = "aspmx2.googlemail.com"
+    value = "alt3.aspmx.l.google.com"
     type = "MX"
     ttl = 1
     priority = 10
 }
 
-resource "cloudflare_record" "gmail-aspmx3" {
+resource "cloudflare_record" "gmail-alt4" {
     domain = "${var.domain}"
     name = "@"
-    value = "aspmx3.googlemail.com"
+    value = "alt4.aspmx.l.google.com"
     type = "MX"
     ttl = 1
     priority = 10
