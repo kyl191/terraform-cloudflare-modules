@@ -2,7 +2,7 @@ variable "domain" {}
 variable "dest" {}
 resource "cloudflare_record" "bare-domain" {
     domain = "${var.domain}"
-    name = "@"
+    name = "${var.domain}"
     value = "${var.dest}"
     type = "CNAME"
     ttl = 1
