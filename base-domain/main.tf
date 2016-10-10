@@ -1,12 +1,15 @@
 variable "domain" {}
 variable "dest" {}
+variable "proxied" {
+  default = true
+}
 resource "cloudflare_record" "bare-domain" {
     domain = "${var.domain}"
     name = "${var.domain}"
     value = "${var.dest}"
     type = "CNAME"
     ttl = 1
-    proxied = true
+    proxied = "${var.proxied}"
 }
 
 resource "cloudflare_record" "www-subdomain" {
@@ -15,5 +18,5 @@ resource "cloudflare_record" "www-subdomain" {
     value = "${var.dest}"
     type = "CNAME"
     ttl = 1
-    proxied = true
+    proxied = "${var.proxied}"
 }
