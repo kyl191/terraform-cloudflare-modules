@@ -6,6 +6,7 @@ resource "cloudflare_record" "bare-domain" {
     value = "${var.dest}"
     type = "CNAME"
     ttl = 1
+    proxied = true
 }
 
 resource "cloudflare_record" "www-subdomain" {
@@ -14,4 +15,5 @@ resource "cloudflare_record" "www-subdomain" {
     value = "${var.dest}"
     type = "CNAME"
     ttl = 1
+    proxied = true
 }
